@@ -140,8 +140,16 @@ export default function TodoPage() {
                 onChange={(e) => setTask(e.target.value)}
                 className="w-1/2"
               />
-              <div className="flex w-1/2 gap-1 relative">
-                <Input
+
+              <div className="flex justify-between w-1/2 gap-1 relative">
+                <input
+                  type="date"
+                  id="date"
+                  name="to-do-date"
+                  value={selectedDate.toISOString().split("T")[0]}
+                  onChange={(e) => setSelectedDate(new Date(e.target.value))}
+                />
+                {/* <Input
                   readOnly
                   value={format(selectedDate, "PPP")}
                   onClick={() => setCalendarOpen((prev) => !prev)}
@@ -159,7 +167,7 @@ export default function TodoPage() {
                       className="rounded-md border"
                     />
                   </div>
-                )}
+                )} */}
                 <Button onClick={handleAddTodo} className="w-1/2">
                   {editIndex !== null ? "Update Task" : "Add Task"}
                 </Button>
